@@ -22,7 +22,7 @@ module "eks" {
   eks_managed_node_groups = {
     default = {
       instance_types = ["t3.small"]
-      ami_type       = "ami-024050934c1c66b27"
+      ami_type       = "AL2_x86_64"
       desired_size   = 2
       min_size       = 2
       max_size       = 3
