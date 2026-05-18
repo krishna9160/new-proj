@@ -10,7 +10,8 @@ data "aws_subnets" "default" {
 }
 
 module "eks" {
-  source = "terraform-aws-modules/eks/aws"
+  source  = "terraform-aws-modules/eks/aws"
+  version = "21.20.0"
 
   cluster_name    = "simple-eks"
   cluster_version = "1.29"
@@ -22,6 +23,8 @@ module "eks" {
     default = {
       instance_types = ["t3.medium"]
       desired_size   = 1
+      min_size       = 1
+      max_size       = 2
     }
   }
 }
