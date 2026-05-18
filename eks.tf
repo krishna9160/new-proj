@@ -9,6 +9,11 @@ data "aws_subnets" "default" {
   }
 }
 
+
+create_kms_key = false
+cluster_encryption_config = {
+
+
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "19.21.0"
