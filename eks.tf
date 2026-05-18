@@ -9,6 +9,8 @@ data "aws_subnets" "default" {
   }
 }
 
+enable_cluster_creater_admin_permissions = true
+
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "19.21.0"
