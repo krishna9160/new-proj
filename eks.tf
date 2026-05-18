@@ -26,15 +26,7 @@ module "eks" {
   create_kms_key = false
   cluster_encryption_config = {}
 
-  manage_aws_auth_configmap = true
-
-  aws_auth_users = [
-    {
-      userarn  = "arn:aws:iam::486036174583:user/admin-user"
-      username = "admin-user"
-      groups   = ["system:masters"]
-    }
-  ]
+  manage_aws_auth_configmap = false
 
   eks_managed_node_groups = {
     default = {
