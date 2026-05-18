@@ -19,10 +19,9 @@ module "eks" {
   vpc_id     = data.aws_vpc.default.id
   subnet_ids = data.aws_subnets.default.ids
 
-manage_aws_auth_configmap = false
 
   # ✅ THIS IS THE KEY PART
-  manage_aws_auth_configmap = true
+  manage_aws_auth_configmap = false
 
   aws_auth_users = [
     {
