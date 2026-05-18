@@ -19,15 +19,16 @@ module "eks" {
   vpc_id     = data.aws_vpc.default.id
   subnet_ids = data.aws_subnets.default.ids
 
-manage_aws_auth_configmap = true
+  # ✅ THIS IS THE KEY PART
+  manage_aws_auth_configmap = true
 
-aws_auth_users = [
-  {
-    userarn  = "arn:aws:iam::486036174583:user/admin-user"
-    username = "admin-user"
-    groups   = ["system:masters"]
-  }
-]
+  aws_auth_users = [
+    {
+      userarn  = "arn:aws:iam::486036174583:user/admin-user"
+      username = "admin-user"
+      groups   = ["system:masters"]
+    }
+  ]
 
   eks_managed_node_groups = {
     default = {
