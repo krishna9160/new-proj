@@ -19,20 +19,13 @@ module "eks" {
   vpc_id     = data.aws_vpc.default.id
   subnet_ids = data.aws_subnets.default.ids
 
-cluster_endpoint_private_access = false
-cluster_endpoint_public_access  = true
-cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
+  # ✅ FORCE PUBLIC API ACCESS
+  cluster_endpoint_public_access  = true
+  cluster_endpoint_private_access = false
+  cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
 
-  # ✅ THIS IS THE KEY PART
+  # ✅ DO NOT manage aws-auth from Terraform
   manage_aws_auth_configmap = false
-
-  aws_auth_users = [
-    {
-      userarn  = "arn:aws:iam::486036174583:user/admin-user"
-      username = "admin-user"
-      groups   = ["system:masters"]
-    }
-  ]
 
   eks_managed_node_groups = {
     default = {
