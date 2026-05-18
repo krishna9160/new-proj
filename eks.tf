@@ -28,8 +28,8 @@ module "eks" {
   create_kms_key = false
   cluster_encryption_config = {}
 
-  manage_aws_auth_configmap = true
-enable_cluster_creator_admin_permissions = true
+  manage_aws_auth_configmap = false
+
 
   eks_managed_node_groups = {
     default = {
