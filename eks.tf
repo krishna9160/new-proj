@@ -24,6 +24,8 @@ module "eks" {
   cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
 
   create_kms_key = false
+  cluster_encryption_config = {}
+
   manage_aws_auth_configmap = false
 
   eks_managed_node_groups = {
