@@ -9,7 +9,7 @@ data "aws_subnets" "default" {
   }
 }
 
-enable_cluster_creator_admin_permissions = true
+
 
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
@@ -28,7 +28,8 @@ module "eks" {
   create_kms_key = false
   cluster_encryption_config = {}
 
-  manage_aws_auth_configmap = false
+  manage_aws_auth_configmap = true
+enable_cluster_creator_admin_permissions = true
 
   eks_managed_node_groups = {
     default = {
