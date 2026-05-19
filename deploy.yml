@@ -16,4 +16,4 @@ spec:
         - name: my-app
           image: vamsi5170/new-proj:44
           ports:
-            - containerPort: 80
+            - containerPort: 3000
